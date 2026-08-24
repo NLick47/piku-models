@@ -1,0 +1,8 @@
+catalog/models.enc.json
+.env
+.env.*
+*.env
+node_modules/
+.DS_Store
+Thumbs.db
+.idea/

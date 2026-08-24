@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "models": [
+    {
+      "id": "zhipu-glm-4-flash",
+      "label": "智谱 GLM-4-Flash（快）",
+      "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
+      "model": "glm-4-flash",
+      "free": true,
+      "verified": true,
+      "keyEnv": "ZHIPU_API_KEY"
+    },
+    {
+      "id": "zhipu-glm-45-flash",
+      "label": "智谱 GLM-4.5-Flash（质量更好，较慢）",
+      "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
+      "model": "glm-4.5-flash",
+      "free": true,
+      "verified": true,
+      "keyEnv": "ZHIPU_API_KEY"
+    },
+    {
+      "id": "opencode-zen-hy3",
+      "label": "OpenCode Zen Hy3（免费）",
+      "baseUrl": "https://opencode.ai/zen/v1",
+      "model": "hy3-free",
+      "free": true,
+      "verified": true,
+      "keyEnv": "OPENCODE_ZEN_API_KEY"
+    }
+  ]
+}

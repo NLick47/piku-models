@@ -1,0 +1,46 @@
+name: Publish catalog
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-catalog
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Encrypt catalog
+        env:
+          CATALOG_ENC_KEY: ${{ secrets.CATALOG_ENC_KEY }}
+          ZHIPU_API_KEY: ${{ secrets.ZHIPU_API_KEY }}
+          OPENCODE_ZEN_API_KEY: ${{ secrets.OPENCODE_ZEN_API_KEY }}
+        run: node scripts/encrypt-catalog.mjs
+
+      - name: Push to catalog branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          PUB="$RUNNER_TEMP/publish"
+          mkdir -p "$PUB"
+          cp catalog/models.enc.json "$PUB/"
+          cd "$PUB"
+          git init -q -b catalog
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add models.enc.json
+          git commit -qm "update"
+          git remote add origin "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git"
+          git push -q --force origin HEAD:refs/heads/catalog
