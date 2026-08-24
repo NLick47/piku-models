@@ -27,6 +27,7 @@ jobs:
           CATALOG_ENC_KEY: ${{ secrets.CATALOG_ENC_KEY }}
           ZHIPU_API_KEY: ${{ secrets.ZHIPU_API_KEY }}
           OPENCODE_ZEN_API_KEY: ${{ secrets.OPENCODE_ZEN_API_KEY }}
+          SCNET_API_KEY: ${{ secrets.SCNET_API_KEY }}
         run: node scripts/encrypt-catalog.mjs
 
       - name: Push to catalog branch

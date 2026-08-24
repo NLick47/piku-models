@@ -3,30 +3,33 @@
   "models": [
     {
       "id": "zhipu-glm-4-flash",
-      "label": "智谱 GLM-4-Flash（快）",
+      "label": "GLM-4 Flash",
       "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
       "model": "glm-4-flash",
       "free": true,
       "verified": true,
-      "keyEnv": "ZHIPU_API_KEY"
+      "keyEnv": "ZHIPU_API_KEY",
+      "hint": "速度最快"
     },
     {
-      "id": "zhipu-glm-45-flash",
-      "label": "智谱 GLM-4.5-Flash（质量更好，较慢）",
-      "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
-      "model": "glm-4.5-flash",
+      "id": "scnet-max",
+      "label": "SCNet Max",
+      "baseUrl": "https://api.scnet.cn/api/llm/v1",
+      "model": "SCNet-Max",
       "free": true,
       "verified": true,
-      "keyEnv": "ZHIPU_API_KEY"
+      "keyEnv": "SCNET_API_KEY",
+      "hint": "质量最佳"
     },
     {
-      "id": "opencode-zen-hy3",
-      "label": "OpenCode Zen Hy3（免费）",
+      "id": "opencode-zen-nemotron-3-ultra",
+      "label": "Nemotron 3 Ultra",
       "baseUrl": "https://opencode.ai/zen/v1",
-      "model": "hy3-free",
+      "model": "nemotron-3-ultra-free",
       "free": true,
       "verified": true,
-      "keyEnv": "OPENCODE_ZEN_API_KEY"
+      "keyEnv": "OPENCODE_ZEN_API_KEY",
+      "hint": "质量好，稍慢"
     }
   ]
 }
