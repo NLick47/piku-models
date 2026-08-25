@@ -1,6 +1,9 @@
 name: Publish catalog
 
 on:
+  push:
+    branches-ignore:
+      - catalog
   workflow_dispatch:
 
 permissions:
