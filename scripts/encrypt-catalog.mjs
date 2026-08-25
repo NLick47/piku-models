@@ -30,7 +30,7 @@ const models = source.models.map((entry) => {
   return { ...rest, apiKey };
 });
 
-const plaintext = JSON.stringify({ version: source.version ?? 2, models });
+const plaintext = JSON.stringify({ version: source.version ?? 2, defaults: source.defaults ?? null, models });
 
 const iv = randomBytes(12);
 const cipher = createCipheriv("aes-256-gcm", Buffer.from(encKey, "hex"), iv);
