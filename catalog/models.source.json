@@ -35,11 +35,26 @@
       "model": "Qwen/Qwen3-8B",
       "free": true,
       "verified": true,
+      "defaultText": true,
+      "kind": "text",
       "keyEnv": "SILICONFLOW_API_KEY",
       "hint": "默认 推荐",
       "params": {
         "enable_thinking": false
       }
+    },
+    {
+      "id": "scnet-deepseek-novel",
+      "label": "DeepSeek-v4flash",
+      "baseUrl": "https://api.scnet.cn/api/llm/v1",
+      "model": "DeepSeek-V4-Flash-0731-Event",
+      "free": false,
+      "verified": true,
+      "defaultNovel": true,
+      "kind": "novel",
+      "keyEnv": "SCNET_API_KEY",
+      "hint": "小说正文默认",
+      "params": {}
     }
   ]
 }
