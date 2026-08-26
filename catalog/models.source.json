@@ -1,6 +1,10 @@
 {
   "version": 3,
   "defaults": {
+    "roles": {
+      "text": "siliconflow-qwen3-8b",
+      "novel": "scnet-deepseek-novel"
+    },
     "params": {
       "temperature": 0.2
     },
@@ -26,35 +30,34 @@
       "free": true,
       "verified": true,
       "keyEnv": "ZHIPU_API_KEY",
-      "hint": ""
+      "hint": "",
+      "roles": ["text"]
     },
     {
       "id": "siliconflow-qwen3-8b",
-      "label": "Qwen3-8B (SiliconFlow)",
+      "label": "Qwen3-8B",
       "baseUrl": "https://api.siliconflow.cn/v1",
       "model": "Qwen/Qwen3-8B",
       "free": true,
       "verified": true,
-      "defaultText": true,
-      "kind": "text",
       "keyEnv": "SILICONFLOW_API_KEY",
-      "hint": "默认 推荐",
+      "hint": "短文本翻译推荐",
       "params": {
         "enable_thinking": false
-      }
+      },
+      "roles": ["text"]
     },
     {
       "id": "scnet-deepseek-novel",
-      "label": "DeepSeek-v4flash",
+      "label": "DeepSeek-V4-Flash-0731",
       "baseUrl": "https://api.scnet.cn/api/llm/v1",
       "model": "DeepSeek-V4-Flash-0731-Event",
       "free": false,
       "verified": true,
-      "defaultNovel": true,
-      "kind": "novel",
       "keyEnv": "SCNET_API_KEY",
-      "hint": "小说正文默认",
-      "params": {}
+      "hint": "长文本翻译推荐",
+      "params": {},
+      "roles": ["novel"]
     }
   ]
 }

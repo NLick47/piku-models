@@ -30,7 +30,13 @@ const models = source.models.map((entry) => {
   return { ...rest, apiKey };
 });
 
-const plaintext = JSON.stringify({ version: source.version ?? 2, defaults: source.defaults ?? null, models });
+// defaults.roles 指向的模型 id 必须存在（role 名可自由自定义，指向不存在的 id 才算配置错误）
+const ids = new Set(models.map((m) => m.id));
+for (const [role, target] of Object.entries(source.defaults?.roles ?? {})) {
+  if (!ids.has(target)) fail(`defaults.roles["${role}"] -> "${target}": no such model id`);
+}
+
+const plaintext = JSON.stringify({ version: source.version ?? 3, defaults: source.defaults ?? null, models });
 
 const iv = randomBytes(12);
 const cipher = createCipheriv("aes-256-gcm", Buffer.from(encKey, "hex"), iv);
