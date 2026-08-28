@@ -21,13 +21,17 @@ if (!Array.isArray(source.models) || source.models.length === 0) {
 }
 
 const models = source.models.map((entry) => {
-  const { keyEnv, ...rest } = entry;
-  if (!rest.id || !rest.baseUrl || !rest.model) {
-    fail(`${rest.id ?? "(no id)"}: missing id/baseUrl/model`);
+  const { keyEnv, baseUrlEnv, ...rest } = entry;
+  if (!rest.id || !rest.model) {
+    fail(`${rest.id ?? "(no id)"}: missing id/model`);
   }
   const apiKey = process.env[keyEnv]?.trim();
   if (!apiKey) fail(`${rest.id}: env ${keyEnv} not set`);
-  return { ...rest, apiKey };
+  const baseUrl = baseUrlEnv
+    ? process.env[baseUrlEnv]?.trim()
+    : rest.baseUrl;
+  if (!baseUrl) fail(`${rest.id}: ${baseUrlEnv ? "env " + baseUrlEnv : "baseUrl"} not set`);
+  return { ...rest, baseUrl, apiKey };
 });
 
 // defaults.roles 指向的模型 id 必须存在（role 名可自由自定义，指向不存在的 id 才算配置错误）
