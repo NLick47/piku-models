@@ -69,7 +69,7 @@
       "free": true,
       "verified": true,
       "keyEnv": "SILICONFLOW_API_KEY",
-      "hint": "短文本翻译推荐",
+      "hint": "",
       "params": {
         "enable_thinking": false
       },
@@ -100,7 +100,7 @@
       "free": true,
       "verified": true,
       "keyEnv": "SILICONFLOW_API_KEY",
-      "hint": "短文本翻译推荐",
+      "hint": "",
       "params": {
         "temperature": 0.1,
         "enable_thinking": false
