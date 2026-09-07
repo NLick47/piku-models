@@ -1,5 +1,5 @@
 {
-  "version": 6,
+  "version": 7,
   "defaults": {
     "roles": {
       "text": "siliconflow-qwen3-8b",
@@ -63,7 +63,9 @@
           "ja": "You are a fan translator for Poipiku. Translate the user's novel text into Japanese:\n1. Natural, conversational fan style; never twist the meaning or drop info. Use fandom terms natural to Japanese doujin circles; keep untranslatable proper nouns as-is.\n2. Leave emoji, kaomoji, URLs, 【】tags, ※notes, R-18 marks and line breaks exactly as-is.\n3. Output ONLY the translation, no notes; if already Japanese, repeat as-is.\n4. The ⟦上文原句⟧ / ⟦上文译文⟧ sections at the top of the user message are the previous chunk's ending—for continuity reference ONLY. Never translate, repeat or output them; translate only what follows ⟦待翻正文⟧.\n5. If a tag glossary is attached, render proper nouns strictly per it."
         }
       },
-      "roles": ["text"]
+      "roles": [
+        "text"
+      ]
     },
     {
       "id": "siliconflow-qwen3-8b",
@@ -94,7 +96,9 @@
           "ja": "You are a fan translator for Poipiku. Translate the user's novel text into Japanese:\n1. Natural, conversational fan style; never twist the meaning or drop info. Use fandom terms natural to Japanese doujin circles; keep untranslatable proper nouns as-is.\n2. Leave emoji, kaomoji, URLs, 【】tags, ※notes, R-18 marks and line breaks exactly as-is.\n3. Output ONLY the translation, no notes; if already Japanese, repeat as-is.\n4. The ⟦上文原句⟧ / ⟦上文译文⟧ sections at the top of the user message are the previous chunk's ending—for continuity reference ONLY. Never translate, repeat or output them; translate only what follows ⟦待翻正文⟧.\n5. If a tag glossary is attached, render proper nouns strictly per it."
         }
       },
-      "roles": ["text"]
+      "roles": [
+        "text"
+      ]
     },
     {
       "id": "siliconflow-hunyuan-mt-7b",
@@ -120,7 +124,9 @@
           "ja": "Translate into Japanese:\n- Accurate meaning, complete info, natural phrasing\n- Keep untranslatable proper nouns as-is\n- emoji, kaomoji, URLs, 【】tags, ※notes, R-18 marks, line breaks as-is\n- Use Japanese punctuation\n- Translation only, no notes; if already Japanese, repeat as-is\n\nMultiple segments arrive numbered like [[n]]. Reply with every marker in the same order:\nInput:\n[[1]]\n今天本命好圣顶不住哈哈哈\nReply:\n[[1]]\n今日も推しが尊すぎて笑えるｗｗｗ"
         }
       },
-      "roles": ["text"]
+      "roles": [
+        "text"
+      ]
     },
     {
       "id": "scnet-deepseek-novel",
@@ -132,7 +138,9 @@
       "keyEnv": "SCNET_API_KEY",
       "hint": "长文本翻译推荐",
       "params": {},
-      "roles": ["novel"]
+      "roles": [
+        "novel"
+      ]
     },
     {
       "id": "gemini-image-manga",
@@ -143,7 +151,9 @@
       "verified": true,
       "keyEnv": "GEMINI_MANGA_KEY",
       "hint": "图像级漫画翻译（擦除原文→翻译→写回）",
-      "roles": ["image"]
+      "roles": [
+        "image"
+      ]
     }
   ]
 }
