@@ -25,6 +25,17 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Bump version
+        run: |
+          node -e "
+            const fs = require('fs');
+            const f = 'catalog/models.source.json';
+            const j = JSON.parse(fs.readFileSync(f, 'utf8'));
+            j.version = (j.version ?? 0) + 1;
+            fs.writeFileSync(f, JSON.stringify(j, null, 2) + '\n');
+            console.log('version ->', j.version);
+          "
+
       - name: Encrypt catalog
         env:
           CATALOG_ENC_KEY: ${{ secrets.CATALOG_ENC_KEY }}

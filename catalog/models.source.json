@@ -102,8 +102,7 @@
       "keyEnv": "SILICONFLOW_API_KEY",
       "hint": "",
       "params": {
-        "temperature": 0.1,
-        "enable_thinking": false
+        "temperature": 0.1
       },
       "prompts": {
         "single": {
