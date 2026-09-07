@@ -62,3 +62,7 @@ jobs:
           git commit -qm "update"
           git remote add origin "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git"
           git push -q --force origin HEAD:refs/heads/catalog
+
+      - name: Purge jsDelivr cache
+        run: |
+          curl -s "https://purge.jsdelivr.net/gh/${{ github.repository }}@catalog/models.enc.json"
