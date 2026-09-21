@@ -1,5 +1,5 @@
 {
-  "version": 7,
+  "version": 8,
   "defaults": {
     "roles": {
       "text": "siliconflow-qwen3-8b",
