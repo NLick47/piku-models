@@ -1,9 +1,8 @@
 {
-  "version": 6,
+  "version": 7,
   "defaults": {
     "roles": {
       "text": "siliconflow-qwen3-8b",
-      "novel": "scnet-deepseek-novel",
       "image": "gemini-image-manga"
     },
     "params": {
@@ -121,18 +120,6 @@
         }
       },
       "roles": ["text"]
-    },
-    {
-      "id": "scnet-deepseek-novel",
-      "label": "DeepSeek-V4-Flash-0731",
-      "baseUrl": "https://api.scnet.cn/api/llm/v1",
-      "model": "DeepSeek-V4-Flash-0731-Event",
-      "free": false,
-      "verified": true,
-      "keyEnv": "SCNET_API_KEY",
-      "hint": "长文本翻译推荐",
-      "params": {},
-      "roles": ["novel"]
     },
     {
       "id": "gemini-image-manga",
