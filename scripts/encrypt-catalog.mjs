@@ -40,7 +40,19 @@ for (const [role, target] of Object.entries(source.defaults?.roles ?? {})) {
   if (!ids.has(target)) fail(`defaults.roles["${role}"] -> "${target}": no such model id`);
 }
 
-const plaintext = JSON.stringify({ version: source.version ?? 3, defaults: source.defaults ?? null, models });
+// 根级 sourceId 是"源的身份证"（这份列表是谁的），app 在刷新结果里显示它；
+// 必须原样带出——发布对象是显式构造的，漏掉就等于在 models.source.json 里写了也没用
+const sourceId = source.sourceId;
+if (sourceId !== undefined && (typeof sourceId !== "string" || !sourceId.trim())) {
+  fail(`sourceId must be a non-empty string, got ${JSON.stringify(sourceId)}`);
+}
+
+const plaintext = JSON.stringify({
+  version: source.version ?? 3,
+  ...(sourceId ? { sourceId: sourceId.trim() } : {}),
+  defaults: source.defaults ?? null,
+  models,
+});
 
 const iv = randomBytes(12);
 const cipher = createCipheriv("aes-256-gcm", Buffer.from(encKey, "hex"), iv);

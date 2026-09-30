@@ -1,5 +1,6 @@
 {
   "version": 8,
+  "sourceId": "piku-official",
   "defaults": {
     "roles": {
       "text": "siliconflow-qwen3-8b",
